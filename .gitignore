@@ -1,12 +1,58 @@
-*.class
+public class Aluno {
+	private String nome;
+	private int ano;
+	private float[] nota;
+	static float soma;
+	
+	//construtor
+	public Aluno (String nome, int ano, float nota[]){
+		this.nome = nome;
+		this.ano = ano;
+		for (int i = 0; i < 4; i++){  // vetor de notas
+			this.nota[i] = nota[i];
+		}
+	}
+	
+	//metodos - gets e sets
+	public String getNome() {
+		return nome;
+	}
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-# Package Files #
-*.jar
-*.war
-*.ear
+	public int getAno() {
+		return ano;
+	}
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+	public void setAno(int ano) {
+		this.ano = ano;
+	}
+
+	public float[] getNota() {
+		return nota;
+	}
+
+	public void setNota(float[] nota) {
+		this.nota = nota;
+	}
+	
+	public float media (float[] nota){
+		for (int i = 0; i < 4; i++){
+			soma += nota[i];
+		}
+		return soma / 4;
+	}
+	
+	public void situacao (){
+		if (media() < 4){
+			System.out.println("Reprovado");
+		}else if (media() >= 7){
+			System.out.println("Aprovado");
+		}else{
+			System.out.println("Recuperação");
+		}
+	}
+		
+}
